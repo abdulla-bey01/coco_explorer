@@ -41,6 +41,7 @@ class _SearchResultItemState extends State<SearchResultItem> {
                 ? const Center(child: CircularProgressIndicator())
                 : CustomPaint(
                     willChange: true,
+                    //use foregroundPainter to draw segment onto the image
                     foregroundPainter: SegmentationPainter(
                       segmentations: selectedExploreIconSegments,
                       originalSize: snapshot.data?.originalSize,
