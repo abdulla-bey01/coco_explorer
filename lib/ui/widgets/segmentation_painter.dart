@@ -17,20 +17,21 @@ class SegmentationPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) async {
     if (originalSize == null) return;
     //create paint object with fill-style to fill inside of segment with color
-    final paint = Paint()..style = PaintingStyle.fill;
 
     var r = (Random().nextInt(255));
     var g = (Random().nextInt(255));
     var b = (Random().nextInt(255));
     //get random color
-    paint.color = Color.fromRGBO(r, g, b, 1);
+    final paint = Paint()
+      ..style = PaintingStyle.fill
+      ..color = Color.fromRGBO(r, g, b, 1);
 
     for (var i = 0; i < segmentations.length; i++) {
       for (var seg in segmentations[i].segments) {
         try {
           //create path object
           Path path = Path();
-          //determine main point
+          //move main point to provided starting point
           path.moveTo(
             transformX(seg[0], size, originalSize!),
             transformY(seg[1], size, originalSize!),
