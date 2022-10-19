@@ -29,7 +29,6 @@ class _SearchResultItemState extends State<SearchResultItem> {
   @override
   Widget build(BuildContext context) {
     final exploreIcons = widget.image.getExploreIcons();
-    debugPrint('on build');
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
