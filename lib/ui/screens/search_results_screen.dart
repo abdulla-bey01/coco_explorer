@@ -13,9 +13,11 @@ class SearchResultsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     if (presenter.requestState == UiSideState.unsuccessfull) {
       Future.delayed(Duration.zero).then((value) {
-        Get.showSnackbar(const GetSnackBar(
-          titleText: Text('Images can not be loaded'),
-        ));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Images can not be loaded'),
+          ),
+        );
       });
     }
     return Scaffold(
