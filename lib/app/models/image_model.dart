@@ -1,6 +1,4 @@
 import 'package:coco_exp/app/models/base_model.dart';
-import 'package:coco_exp/data/dtos/base_dto.dart';
-
 import '/app/models/explore_icon_model.dart';
 import '/app/models/segmentation_model.dart';
 

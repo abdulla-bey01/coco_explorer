@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 //can add keeping image ids functionlaity to classes it need(keep dry)
 mixin IKeepImageIdsForPagination {
   late List<int> imageIds;

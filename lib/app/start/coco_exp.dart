@@ -1,4 +1,3 @@
-import '/app/interactors/search_interactor.dart';
 import '/data/abstraction/i_explore_icon_manager.dart';
 import '/data/abstraction/i_image_manager.dart';
 import '/data/local/concrency/local_explore_icon_manager.dart';
