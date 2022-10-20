@@ -20,6 +20,7 @@ class SearchResultItem extends StatefulWidget {
 
 class _SearchResultItemState extends State<SearchResultItem> {
   late List<SegmentationModel> selectedExploreIconSegments;
+  dynamic selectedIconId;
   @override
   void initState() {
     super.initState();
@@ -60,22 +61,35 @@ class _SearchResultItemState extends State<SearchResultItem> {
               scrollDirection: Axis.horizontal,
               itemCount: exploreIcons.length,
               itemBuilder: (ctx, index) {
+                final icon = exploreIcons[index];
                 return Padding(
                   padding: const EdgeInsets.only(right: 16.0),
                   child: GestureDetector(
                     onTapDown: (d) {
                       selectedExploreIconSegments = widget.image.segmentations
-                          .where((element) =>
-                              element.exploreId == exploreIcons[index].id)
+                          .where((element) => element.exploreId == icon.id)
                           .toList();
+                      selectedIconId = icon.id;
                       setState(() {});
                     },
                     onTapUp: (d) {
                       selectedExploreIconSegments = [];
+                      selectedIconId = null;
                       setState(() {});
                     },
-                    child: CachedNetworkImage(
-                      imageUrl: exploreIcons[index].sourceUrl,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: (selectedIconId != null &&
+                                selectedIconId == icon.id)
+                            ? Border.all(
+                                color: Colors.green,
+                                width: 3,
+                              )
+                            : null,
+                      ),
+                      child: CachedNetworkImage(
+                        imageUrl: icon.sourceUrl,
+                      ),
                     ),
                   ),
                 );

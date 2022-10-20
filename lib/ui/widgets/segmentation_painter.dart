@@ -45,6 +45,11 @@ class SegmentationPainter extends CustomPainter {
               transformY(seg[j + 3], size, originalSize!),
             );
           }
+          //join to starting point
+          path.lineTo(
+            transformX(seg[0], size, originalSize!),
+            transformY(seg[1], size, originalSize!),
+          );
           canvas.drawPath(path, paint);
           // ignore: empty_catches
         } catch (err) {}
